@@ -15,7 +15,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: process.env.CLIENT_URL || 'https://real-time-communication-with-sock-git-45764d-arynjeris-projects.vercel.app/',
     methods: ['GET', 'POST'],
     credentials: true,
   },
