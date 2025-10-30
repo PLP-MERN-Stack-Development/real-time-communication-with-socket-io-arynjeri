@@ -4,8 +4,7 @@
 Build a real-time chat application using Socket.io that demonstrates bidirectional communication between clients and server, implementing features like live messaging, notifications, and online status updates.
 
 ## 📂 Tasks
-
-### Task 1: Project Setup
+## Task 1: Project Setup
 - Set up a Node.js server with Express
 - Configure Socket.io on the server side
 - Create a React front-end application
