@@ -9,12 +9,13 @@ const path = require('path');
 
 // Load environment variables
 dotenv.config();
-//Add the deployed link to the clientside
+
 // Initialize Express app
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
+    //updated CLIENT_URL to deployed link
     origin: process.env.CLIENT_URL || 'https://real-time-communication-with-sock-git-45764d-arynjeris-projects.vercel.app/',
     methods: ['GET', 'POST'],
     credentials: true,
