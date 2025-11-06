@@ -14,10 +14,9 @@ dotenv.config();
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigins = [
-  process.env.CLIENT_URL || 'https://real-time-communication-with-sock-git-45764d-arynjeris-projects.vercel.app',
-  'http://localhost:5174',//allow local frontend for dev
-]
+const allowedOrigins = 
+  (process.env.CLIENT_URL || '').split(',');
+
 const io = new Server(server, {
   cors: {
     origin: function(origin, callback) {
