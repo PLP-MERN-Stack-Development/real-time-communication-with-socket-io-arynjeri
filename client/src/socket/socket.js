@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 //Add the deployed url to the serverside
 // Socket.io connection URL
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://real-time-communication-with-socket-io-cy5e.onrender.com/';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://real-time-communication-with-socket-io-cy5e.onrender.com';
 
 // Create socket instance
 export const socket = io(SOCKET_URL, {

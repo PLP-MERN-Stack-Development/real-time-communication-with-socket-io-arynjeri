@@ -13,10 +13,22 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 const server = http.createServer(app);
+
+const allowedOrigins = [
+  process.env.CLIENT_URL || 'https://real-time-communication-with-sock-git-45764d-arynjeris-projects.vercel.app',
+  'http://localhost:5174',//allow local frontend for dev
+]
 const io = new Server(server, {
   cors: {
-    //updated CLIENT_URL to deployed link
-    origin: process.env.CLIENT_URL || 'https://real-time-communication-with-sock-git-45764d-arynjeris-projects.vercel.app/',
+    origin: function(origin, callback) {
+      if (!origin) return callback(null,true); //allow non-browser requests
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`CORS not allowed for origin ${origin}`))
+      }
+      
+    },
     methods: ['GET', 'POST'],
     credentials: true,
   },
