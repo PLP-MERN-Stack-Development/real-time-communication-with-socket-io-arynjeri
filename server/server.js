@@ -15,7 +15,7 @@ const app = express();
 const server = http.createServer(app);
 
 const allowedOrigins = 
-  (process.env.CLIENT_URL || '').split(',');
+  (process.env.CLIENT_URL || '').split(',').map(origin => origin.trim());
 
 const io = new Server(server, {
   cors: {
